@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Unbabel",
+  "description": "Unbabel Notification",
+  "version": "1.0",
+
+  "permissions": [
+      "http://127.0.0.1:8000/"
+  ],
+  "browser_action": {
+    "default_icon": "unbabel.png",
+    "default_popup": "popup.html"
+  }
+}
