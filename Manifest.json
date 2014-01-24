@@ -1,15 +1,24 @@
 {
-  "manifest_version": 2,
+    "manifest_version": 2,
 
-  "name": "Unbabel",
-  "description": "Unbabel Notification",
-  "version": "1.0",
+    "name": "Unbabel",
+    "description": "Unbabel Notification",
+    "version": "1.0",
 
-  "permissions": [
-      "http://127.0.0.1:8000/"
-  ],
-  "browser_action": {
-    "default_icon": "unbabel.png",
-    "default_popup": "popup.html"
-  }
+    "permissions": [ "notifications" ],
+    "browser_action": {
+        "default_icon": "icon_unbabel_19.png",
+        "default_title": "Unbabel"
+    },
+    "background": {
+        "persistent": true,
+        "scripts":["scripts/background.js"]
+    },
+    "icons": {
+        "16": "icon_unbabel_16.png",
+        "48": "icon_unbabel_48.png",
+        "96": "icon_unbabel_96.png",
+        "128": "icon_unbabel_128.png"
+    },
+    "web_accessible_resources": [ "notification.png" ]
 }
