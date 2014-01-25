@@ -1,6 +1,7 @@
 var unbabel_url = "https://www.unbabel.co/stream/";
 var notification_id = "";
 
+
 // setInterval(function(){
 // 	chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255] });
 // 	chrome.browserAction.setBadgeText({text: 'new'});
@@ -11,14 +12,36 @@ var notification_id = "";
  * is attached to the browser-action's `onClicked` event.
  * Change according to your needs. */
 setInterval(function(){
-    chrome.notifications.create(notification_id, {
-        type:    "basic",
-        iconUrl: "notification.png",
-        title:   "Hi there!",
-        message: "Have you checked for available tasks lately?",
-        contextMessage: "www.unbabel.com"
-    }, function(id) {
-    	console.log("Create notification with ID: "+ notification_id);
+    $.ajax({
+        type : "GET",
+        url: "http://127.0.0.1:8000/api/v1/tasksavailable/?limit=1&paid=True",
+        dataType: "json",
+        success: function(response){
+            if(response.meta.total_count > 0){
+                chrome.notifications.create(notification_id, {
+                    "type"          : "basic",
+                    "iconUrl"       : "notification.png",
+                    "title"         : "Hi there!",
+                    "message"       : "There are new paid tasks available!",
+                    "contextMessage": "www.unbabel.com"
+
+                }, function(id) {
+                    console.log("Create notification with ID: "+ notification_id);
+                });
+            }
+        },
+        error: function(response){
+            chrome.notifications.create(notification_id, {
+                "type"          : "basic",
+                "iconUrl"       : "notification.png",
+                "title"         : "Sorry for that...",
+                "message"       : "To receive notifications you must login at unbabel.",
+                "contextMessage": "www.unbabel.com"
+
+            }, function(id) {
+                console.log("Create notification with ID: "+ notification_id);
+            });
+        }
     });
 
 //}, 10000);
