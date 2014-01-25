@@ -14,7 +14,7 @@ var notification_id = "";
 setInterval(function(){
     $.ajax({
         type : "GET",
-        url: "http://127.0.0.1:8000/api/v1/tasksavailable/?limit=1&paid=True",
+        url: "https://www.unbabel.co/api/v1/tasksavailable/?limit=1&paid=True",
         dataType: "json",
         success: function(response){
             if(response.meta.total_count > 0){
