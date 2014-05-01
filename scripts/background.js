@@ -3,8 +3,8 @@ var notification_id = "";
 
 
 // setInterval(function(){
-// 	chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255] });
-// 	chrome.browserAction.setBadgeText({text: 'new'});
+//  chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255] });
+//  chrome.browserAction.setBadgeText({text: 'new'});
 // },3000);
 
 
@@ -18,28 +18,32 @@ setInterval(function(){
         dataType: "json",
         success: function(response){
             if(response.meta.total_count > 0){
-                chrome.notifications.create(notification_id, {
-                    "type"          : "basic",
-                    "iconUrl"       : "notification.png",
-                    "title"         : "Hi there!",
-                    "message"       : "There are new paid tasks available!",
-                    "contextMessage": "www.unbabel.com"
-
-                }, function(id) {
-                    console.log("Create notification with ID: "+ notification_id);
+                chrome.notifications.clear(notification_id, function(){
+                    chrome.notifications.create(notification_id, {
+                        "type"          : "basic",
+                        "iconUrl"       : "notification.png",
+                        "title"         : "Hi there!",
+                        "message"       : "There are new paid tasks available!",
+                        "contextMessage": "www.unbabel.com"
+    
+                    }, function(id) {
+                        console.log("Create notification with ID: "+ notification_id);
+                    });
                 });
             }
         },
         error: function(response){
-            chrome.notifications.create(notification_id, {
-                "type"          : "basic",
-                "iconUrl"       : "notification.png",
-                "title"         : "Sorry for that...",
-                "message"       : "To receive notifications you must login at unbabel.",
-                "contextMessage": "www.unbabel.com"
-
-            }, function(id) {
-                console.log("Create notification with ID: "+ notification_id);
+            chrome.notifications.clear(notification_id, function(){
+                chrome.notifications.create(notification_id, {
+                    "type"          : "basic",
+                    "iconUrl"       : "notification.png",
+                    "title"         : "Sorry for that...",
+                    "message"       : "To receive notifications you must login at unbabel.",
+                    "contextMessage": "www.unbabel.com"
+    
+                }, function(id) {
+                    console.log("Create notification with ID: "+ notification_id);
+                });
             });
         }
     });
@@ -52,14 +56,14 @@ setInterval(function(){
 //chrome.notifications.onClosed.addListener(function() {});
 
 chrome.browserAction.onClicked.addListener(function(tab){ 
-	openTab();
+    openTab();
 });
 
 chrome.notifications.onClicked.addListener(function(notifId) {
-	openTab();
+    openTab();
 });
 
 function openTab(){
-	var win = window.open(unbabel_url, '_blank');
-	win.focus();
+    var win = window.open(unbabel_url, '_blank');
+    win.focus();
 };

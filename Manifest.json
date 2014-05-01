@@ -2,7 +2,7 @@
     "manifest_version": 2,
 
     "name": "Unbabel",
-    "description": "Unbabel Notification",
+    "description": "Unbabel lets you make money translating small texts. Get notified when we have paid tasks available.",
     "version": "1.0",
 
     "permissions": [ "notifications", "https://www.unbabel.co/api/v1/tasksavailable/" ],
