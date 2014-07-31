@@ -1,4 +1,4 @@
-var unbabel_url = "https://www.unbabel.com/streamv2/simple/";
+var unbabel_url = "https://www.unbabel.com/streamv2/paid/";
 var notification_id = "show_paid_tasks";
 
 
@@ -8,7 +8,7 @@ var notification_id = "show_paid_tasks";
 setInterval(function(){
     $.ajax({
         type : "GET",
-        url: "https://www.unbabel.com/api/v1/tasksavailable/?limit=1&paid=True&new_arch=True",
+        url: "https://www.unbabel.com/api/v1/tasksavailable/?limit=1&task_type=paid&new_arch=True",
         dataType: "json",
         success: function(response){
             if(response.meta.total_count > 0){
