@@ -18,3 +18,4 @@ atlas/staticfiles/*
 dump/
 latest.dump
 dump.rdb
+.idea/

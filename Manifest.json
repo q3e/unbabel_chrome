@@ -3,9 +3,9 @@
 
     "name": "Unbabel",
     "description": "Unbabel Notifications",
-    "version": "1.3",
+    "version": "1.4",
 
-    "permissions": [ "notifications", "https://www.unbabel.com/api/v1/tasksavailable/" ],
+    "permissions": [ "notifications", "https://unbabel.com/api/v1/tasksavailable/" ],
 
     "browser_action": {
         "default_icon": "icon_unbabel_19.png",

@@ -1,4 +1,4 @@
-var unbabel_url = "https://www.unbabel.com/streamv2/paid/";
+var unbabel_url = "https://unbabel.com/streamv2/paid/";
 var notification_id = "show_paid_tasks";
 
 
@@ -8,7 +8,7 @@ var notification_id = "show_paid_tasks";
 setInterval(function(){
     $.ajax({
         type : "GET",
-        url: "https://www.unbabel.com/api/v1/tasksavailable/?limit=1&task_type=paid&new_arch=True",
+        url: "https://unbabel.com/api/v1/tasksavailable/?limit=1&task_type=paid&new_arch=True",
         dataType: "json",
         success: function(response){
             if(response.meta.total_count > 0){
@@ -18,7 +18,7 @@ setInterval(function(){
                         "iconUrl"       : "notification.png",
                         "title"         : "Hi there!",
                         "message"       : "There are new paid tasks available!",
-                        "contextMessage": "www.unbabel.com"
+                        "contextMessage": "unbabel.com"
 
                     }, function(id) {
                         console.log("Create notification with ID: "+ notification_id);
@@ -33,7 +33,7 @@ setInterval(function(){
                     "iconUrl"       : "notification.png",
                     "title"         : "Sorry for that...",
                     "message"       : "To receive notifications you must login at unbabel.",
-                    "contextMessage": "www.unbabel.com"
+                    "contextMessage": "unbabel.com"
 
                 }, function(id) {
                     console.log("Create notification with ID: "+ notification_id);
@@ -43,7 +43,7 @@ setInterval(function(){
     });
 
 //}, 10000);
-}, 1200000);
+}, (20*60*1000)); // minutes_wanted * seconds_per_minute * milliseconds
 
 /* Add this to also handle the user's clicking
  * the small 'x' on the top right corner */
