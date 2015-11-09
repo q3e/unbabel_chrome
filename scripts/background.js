@@ -1,4 +1,4 @@
-var unbabel_url = "https://unbabel.com/streamv2/paid/";
+var unbabel_url = "https://unbabel.com/editor/paid_tasks/";
 var notification_id = "show_paid_tasks";
 
 
@@ -17,7 +17,7 @@ setInterval(function(){
                         "type"          : "basic",
                         "iconUrl"       : "notification.png",
                         "title"         : "Hi there!",
-                        "message"       : "There are new paid tasks available!",
+                        "message"       : "You have paid tasks available!",
                         "contextMessage": "unbabel.com"
 
                     }, function(id) {
@@ -32,7 +32,7 @@ setInterval(function(){
                     "type"          : "basic",
                     "iconUrl"       : "notification.png",
                     "title"         : "Sorry for that...",
-                    "message"       : "To receive notifications you must login at unbabel.",
+                    "message"       : "To get notified you need to be logged in at Unbabel.",
                     "contextMessage": "unbabel.com"
 
                 }, function(id) {

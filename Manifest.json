@@ -3,7 +3,7 @@
 
     "name": "Unbabel",
     "description": "Unbabel Notifications",
-    "version": "1.4",
+    "version": "1.6",
 
     "permissions": [ "notifications", "https://unbabel.com/api/v1/tasksavailable/" ],
 
