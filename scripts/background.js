@@ -43,7 +43,7 @@ setInterval(function(){
     });
 
 //}, 10000);
-}, (10000)); // minutes_wanted * seconds_per_minute * milliseconds
+}, (20*60*1000)); // minutes_wanted * seconds_per_minute * milliseconds
 
 /* Add this to also handle the user's clicking
  * the small 'x' on the top right corner */
