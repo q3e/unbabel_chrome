@@ -5,7 +5,7 @@
     "description": "Unbabel Notifications",
     "version": "1.6",
 
-    "permissions": [ "notifications", "https://unbabel.com/api/v1/tasksavailable/" ],
+    "permissions": [ "notifications", "https://unbabel.com/api/v1/newtranslatortask/" ],
 
     "browser_action": {
         "default_icon": "icon_unbabel_19.png",
