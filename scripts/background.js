@@ -8,7 +8,7 @@ var notification_id = "show_paid_tasks";
 setInterval(function(){
     $.ajax({
         type : "GET",
-        url: "https://unbabel.com/api/v1/tasksavailable/?limit=1&task_type=paid&new_arch=True",
+        url: "https://unbabel.com/api/v1/newtranslatortask/?task_type=paid&device=web",
         dataType: "json",
         success: function(response){
             if(response.meta.total_count > 0){
@@ -43,7 +43,7 @@ setInterval(function(){
     });
 
 //}, 10000);
-}, (20*60*1000)); // minutes_wanted * seconds_per_minute * milliseconds
+}, (10000)); // minutes_wanted * seconds_per_minute * milliseconds
 
 /* Add this to also handle the user's clicking
  * the small 'x' on the top right corner */
